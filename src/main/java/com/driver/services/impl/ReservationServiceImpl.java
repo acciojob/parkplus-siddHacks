@@ -9,8 +9,6 @@ import com.driver.services.ReservationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-
 @Service
 public class ReservationServiceImpl implements ReservationService {
     @Autowired
@@ -45,7 +43,7 @@ public class ReservationServiceImpl implements ReservationService {
             if(spot.getSpotType() == SpotType.OTHERS)
                 wheels=24;
 
-            if(!spot.isOccupied() && numberOfWheels <= wheels && spot.getPricePerHour()*timeInHours < minCost) {
+            if(!spot.getOccupied() && numberOfWheels <= wheels && spot.getPricePerHour()*timeInHours < minCost) {
                 minCost=spot.getPricePerHour()*timeInHours;
                 reservedSpot=spot;
             }
