@@ -15,9 +15,6 @@ public class UserServiceImpl implements UserService {
     UserRepository userRepository4;
     @Override
     public void deleteUser(Integer userId) {
-        if(!userRepository4.existsById(userId)){
-            return;
-        }
         userRepository4.deleteById(userId);
     }
 
